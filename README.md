@@ -1,6 +1,6 @@
 # Simple REST Api for Movies
 
-This is a simple REST api for creating movies and getting them, also based on age limit.
+This is a simple REST API for creating movies and getting them, also based on age limit.
 
 
 ## sample requests
