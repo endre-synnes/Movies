@@ -4,4 +4,12 @@ node {
     stage ('Clear dependencies'){
         sh("${mvnHome}/bin/mvn clean")
     }
+    
+    stage ('Running Tests'){
+        sh("${mvnHome}/bin/mvn test")
+    }
+    
+    stage ('Packaging JAR'){
+        sh("${mvnHome}/bin/mvn package")
+    }
 }
