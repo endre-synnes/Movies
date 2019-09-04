@@ -6,8 +6,10 @@ pipeline
     maven 'maven'
   }
   
-  stage ('Clear dependencies'){
-    sh("mvn clean")
+  stages { 
+    stage ('Clear dependencies'){
+      sh("mvn clean")
+    }
   }
      
 }
