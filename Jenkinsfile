@@ -8,7 +8,9 @@ pipeline
   
   stages { 
     stage ('Clear dependencies'){
+     steps {
        sh 'mvn clean'
+     }
     }
   }
      
