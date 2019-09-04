@@ -8,7 +8,7 @@ pipeline
   
   stages { 
     stage ('Clear dependencies'){
-      sh("mvn clean")
+       sh 'mvn clean'
     }
   }
      
