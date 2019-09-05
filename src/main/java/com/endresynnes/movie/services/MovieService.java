@@ -62,4 +62,9 @@ public class MovieService {
             throw new IllegalStateException("Missing movie title");
         }
     }
+
+    public void deleteAllMovies() {
+        LOG.info("Deleting all movies");
+        movieRepository.deleteAll();
+    }
 }

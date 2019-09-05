@@ -3,6 +3,7 @@ package com.endresynnes.movie;
 import com.endresynnes.movie.models.MovieDto;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -31,6 +32,13 @@ abstract class TestBase {
 
         createDefaultMovie();
 
+    }
+
+    @After
+    public void tearDown() {
+        given()
+                .contentType(ContentType.JSON)
+                .delete(path);
     }
 
     private void createDefaultMovie() {
