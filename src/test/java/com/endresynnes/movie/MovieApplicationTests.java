@@ -1,16 +1,27 @@
 package com.endresynnes.movie;
 
+import io.restassured.http.ContentType;
+import org.hamcrest.CoreMatchers;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.http.HttpStatus;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class MovieApplicationTests {
+import static io.restassured.RestAssured.given;
+
+public class MovieApplicationTests extends TestBase{
+
 
     @Test
-    public void contextLoads() {
-    }
+    public void testGetMoviesByAge() {
 
+
+        given()
+                .accept(ContentType.JSON)
+                .contentType(ContentType.JSON)
+                .get(path + "/" + age)
+                .then()
+                .statusCode(HttpStatus.OK.value())
+                .body("data.size" , CoreMatchers.equalTo(1))
+                .extract().body().jsonPath().prettyPrint();
+
+    }
 }
