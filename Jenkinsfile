@@ -26,6 +26,18 @@ pipeline
        sh 'mvn package'
      }
     }
+
+    stage ('Build Docker Image') {
+      steps {
+        echo 'Bulding docker image...'
+      }
+    }
+
+    stage ('Deploying') {
+      steps {
+        echo 'Deploying new docker image to Kubernetes...'
+      }
+    }
   }
      
 }
